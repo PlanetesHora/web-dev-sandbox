@@ -1,0 +1,241 @@
+:root {
+    --primary-blue: #458FF6;
+    --dark-text: #1E2332;
+    --grey-text: #7D7987;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: "Mulish", sans-serif;
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; 
+}
+
+/*Container untuk menjaga agar konten tidak terlalu lebar ke pinggir layar*/
+.container {
+    max-width: 1200px; /*Batas maksimal di layar gede */
+    width: 100%; /*di layar kecil akan otomatis memenuhi layar*/
+    margin: 0 auto; /*Tengah-tengah*/
+    display: flex;
+    justify-content: space-between; /*Logo di kiri, Menu di kanan*/
+    align-items: center; /*Rata tengah secara vertikal*/
+    padding: 0 20px; /* agar di HP tulisa enggak nempel ke pinggir layar*/
+}
+
+/* Hilangkan titik pada list menu dan buat menyamping*/
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 40px; /*jarak antar menu*/
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--grey-text);
+    font-weight: 400;
+}
+
+/*Gaya untuk menu yang sedang aktif (Home)*/
+nav ul li a.active{
+    color: var(--dark-text);
+    font-weight: 700;
+}
+
+/*Styling untuk section Hero*/
+.hero{
+    padding: 60px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center; /*supaya teks dan gambar sejajar tengah secara vertikal */
+    gap: 40px; /*jarak antara teks dan gambar*/
+}
+
+.hero-content {
+    flex: 1; /*memberi ruang 50% untuk teks*/
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    font-size: 21px;
+    color: var(--grey-text);
+    margin-bottom: 45px;
+    font-weight: 300;
+}
+
+.hero-image {
+    flex: 1; /*memberi ruang 50% untuk gambar*/
+}
+
+.hero-image img {
+    width: 100%; /*gambar akan mengecil mengikuti ukkuran kotaknya*/
+    height: auto;
+}
+
+/*styling tombol biru*/
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 55px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3672c3; /*warna biru sedikit lebih gelap saat disentuh*/
+}
+
+/*container utama grid*/
+.services-grid {
+    display: grid;
+    /*membuat 3 kolom yang ukurannya sama besar*/
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px; /*jarak antar kartu*/
+    margin-top: 50px;
+}
+
+/*styling satuan kartu*/
+.card {
+    background: white;
+    padding: 45px 35px;
+    border-radius: 20px;
+    /*shadow: horizontal, vertical, blus, spread, color*/
+    box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+    /*membuat isi kartu rata kiri*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: 0.3s; /* biar pas dihover perubahannya halus*/
+}
+
+.card:hover {
+    transform: translateY(-10px); /*efek kartu sedikit naik saat disentuh mouse*/
+}
+
+.card img {
+    height: 90px;
+    width: auto;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--dark-text);
+}
+
+.card p {
+    font-size: 16px;
+    color: var(--grey-text);
+    line-height: 28px;
+}
+
+.services .container {
+    display: block; /*menghapus sifat flex yang bikin konten berjejer*/
+    text-align: center;
+}
+
+.services-header {
+    margin: 0 auto 80px auto;
+    max-width: 950px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    /*membuat 3 kolom otomatis menyesuaikan lebar container*/
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin: 50px 0;
+    width: 100%;
+}
+
+.services-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+/*membuat garis kecil di bawah tulisan Our Services*/
+.services-header h2::after {
+    content: '';
+    position:absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50px);
+    width: 56px;
+    height: 2px;
+    margin: 20px auto;
+    background: #000; /*warna garis hitam/gelap*/
+}
+
+.services-header p {
+    color: var(--grey-text);
+    line-height: 30px;
+}
+
+.services-footer {
+    text-align: center;
+    margin-top: 70px; /*jarak dari kota-kotak ke tombol*/
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue); /*tombol transparan dengan garis biru*/
+    padding: 15px 50px;
+    border-radius: 55px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-blue);
+    color: white; /*berubah jadi biru penuh saat dihover*/
+}
+
+/* Responsive Queries*/
+@media (max-width: 768px) {
+    /* Kode khusus HP*/
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    /* Tambahkan agar di HP, Teks jadi di atas dan Gambar di bawah */
+    .hero .container {
+        flex-direction: column-reverse; /* Gambar di atas, teks di bawah (opsional) atau column biasa */
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px; /* Perkecil tulisan di HP agar tidak memenuhi layar */
+    }
+
+    nav ul {
+        gap: 15px;
+        padding-top: 20px; /* Tambahan biar menu nggak nempel logo */
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr; /*jadi 1 kolom memanjang ke bawah*/
+    }
+}
